@@ -1,0 +1,29 @@
+use emp;
+create table shopping (
+    product_name varchar(30),
+    product_price int
+);
+
+show tables;
+desc shopping;
+insert into shopping values
+('Laptop',50000),
+('Mobile',20000),
+('Headphone',3000),
+('Keyboard',1500);
+
+select * from shopping;
+alter table shopping add product_id int;
+desc shopping;
+set sql_safe_updates = 0;
+
+update shopping
+set product_price = 55000
+where product_name = 'Laptop';
+
+update shopping
+set product_price = 22000
+where product_name = 'Mobile';
+
+select * from shopping;
+
