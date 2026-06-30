@@ -1,0 +1,52 @@
+use students;
+show tables;
+
+CREATE TABLE Student (
+    RollNo INT,
+    Name VARCHAR(50),
+    Subject VARCHAR(50),
+    Marks INT
+);
+
+INSERT INTO Student VALUES (1,'Arun','Maths',90);
+INSERT INTO Student VALUES (2,'Bala','Maths',80);
+INSERT INTO Student VALUES (3,'Charan','Science',85);
+INSERT INTO Student VALUES (4,'Divya','Science',95);
+
+SELECT Subject, SUM(Marks) AS Total_Marks
+FROM Student
+GROUP BY Subject;
+
+
+
+#2
+SELECT 
+    MAX(Marks) AS Highest_Marks,
+    MIN(Marks) AS Lowest_Marks,
+    AVG(Marks) AS Average_Marks
+FROM Student;
+
+
+#3
+
+CREATE TABLE Food (
+    FoodItem VARCHAR(50),
+    Category VARCHAR(50),
+    Price DECIMAL(10,2)
+);
+
+
+INSERT INTO Food (FoodItem, Category, Price)
+VALUES
+('Biscuit', 'Snacks', 50.00),
+('Chips', 'Snacks', 30.00),
+('Pizza', 'Fast Food', 250.00),
+('Burger', 'Fast Food', 120.00),
+('Ice Cream', 'Dessert', 90.00),
+('Juice', 'Beverages', 70.00);
+
+SELECT Category, FoodItem, Price
+FROM Food
+WHERE Price < 100
+GROUP BY Category, FoodItem, Price
+ORDER BY Category;
